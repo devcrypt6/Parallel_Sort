@@ -78,7 +78,7 @@ fn merge<T: Ord + Copy>(arr: &mut [T], low: usize, mid: usize, high: usize) {
         i += 1;
         k += 1;
     }
-    
+
     // Copy remaining elements of right array if any
     while j < n2 {
         arr[k] = right[j];
