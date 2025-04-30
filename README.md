@@ -86,6 +86,52 @@ Arguments:
 - `ARRAY_SIZE`: Number of elements to sort (default: 1,000,000)
 - `MAX_VALUE`: Maximum random value to generate (default: 1,000,000)
 
+## Example Output 
+
+Single Run 
+
+```bash
+$ cargo run --release -- 100000
+Finished release [optimized] target(s) in 0.07s
+Running `target/release/parallel_sort 100000`
+
+Benchmarking Merge Sort with array size: 100000
+Generating random data...
+Running sequential merge sort...
+Running parallel merge sort...
+
+Performance Comparison:
+Sequential Merge Sort: 0.019914 seconds
+Parallel Merge Sort: 0.003807 seconds
+Speedup: 5.23x
+Results are identical ✓
+
+First 10 elements of sorted array:
+7 24 26 40 42 46 49 51 58 76
+```
+
+Full Benchmark Suite
+
+```bash
+$ cargo run --release -- --benchmark
+Running comprehensive benchmark suite...
+Testing array sizes: [1000, 10000, 100000, 1000000, 5000000, 10000000]
+Runs per size: 3
+
+Size        | Sequential   | Parallel     | Speedup
+----------------------------------------------------------
+Size:      1000 | Sequential:   0.000 s | Parallel:   0.000 s | Speedup: 1.11x
+Size:     10000 | Sequential:   0.002 s | Parallel:   0.001 s | Speedup: 2.07x
+Size:    100000 | Sequential:   0.016 s | Parallel:   0.003 s | Speedup: 5.38x
+Size:   1000000 | Sequential:   0.176 s | Parallel:   0.028 s | Speedup: 6.24x
+Size:   5000000 | Sequential:   0.908 s | Parallel:   0.148 s | Speedup: 6.12x
+Size:  10000000 | Sequential:   1.863 s | Parallel:   0.285 s | Speedup: 6.53x
+
+Generating performance graphs...
+Benchmark graphs saved to results/merge_sort_benchmark.png.
+```
+
+
 ## Performance Analysis
 
 The benchmark compares:
@@ -93,7 +139,15 @@ The benchmark compares:
 - Speedup factor gained through parallelization
 - Verification that both algorithms produce identical results
 
+The results show impressive speedups, especially for larger arrays:
+- Small arrays (1,000 elements): ~1.1× speedup
+- Medium arrays (100,000 elements): ~5.4× speedup
+-	Large arrays (10,000,000 elements): ~6.5× speedup
+
 The full benchmark generates a performance graph at `results/merge_sort_benchmark.png` showing:
+
+![Benchmark Results](results/merge_sort_benchmark.png)
+
 - Sort duration comparison between sequential and parallel implementations
 - Speedup factor across different array sizes
 
