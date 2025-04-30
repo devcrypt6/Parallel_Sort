@@ -119,7 +119,7 @@ pub fn plot_results(results: &BenchmarkResult, output_file: &str) -> Result<(), 
             .configure_series_labels()
             .background_style(&WHITE.mix(0.8))
             .border_style(&BLACK)
-            .draw()?;
+            .draw()?; 
     }
     
     // Plot the speedup
