@@ -1,6 +1,6 @@
 # Parallel Merge Sort Implementation in Rust
 
-This project provides a production-level implementation of both sequential and parallel merge sort algorithms in Rust. It demonstrates how to effectively parallelize sorting operations and includes tools to measure and compare performance.
+This project provides a implementation of both sequential and parallel merge sort algorithms in Rust. It demonstrates how to effectively parallelize sorting operations and includes tools to measure and compare performance.
 
 ## Project Overview
 
