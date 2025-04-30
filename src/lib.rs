@@ -11,7 +11,7 @@ pub struct SortResult<T> {
     pub duration: Duration,
     pub algorithm: String,
 }
-
+ 
 /// Sequential merge sort implementation
 pub fn sequential_merge_sort<T: Ord + Copy>(mut arr: Vec<T>) -> SortResult<T> {
     let start = Instant::now();
