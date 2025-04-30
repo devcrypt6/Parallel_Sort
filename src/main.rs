@@ -46,7 +46,7 @@ fn run_single_benchmark(args: Vec<String>) -> Result<(), Box<dyn std::error::Err
     
     println!("Benchmarking Merge Sort with array size: {}", array_size);
     println!("Generating random data...");
-    
+     
     // Generate random data
     let data = generate_random_data(array_size, max_value);
     
